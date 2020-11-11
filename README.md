@@ -1,4 +1,4 @@
-# RANDOMUSER c# library
+# RANDOMUSER C# library
 
 
 ## Overview
