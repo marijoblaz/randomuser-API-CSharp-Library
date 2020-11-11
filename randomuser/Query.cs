@@ -10,19 +10,18 @@ namespace randomuser
 
         public Query()
         {
-            parseQuery("");
-
+            ParseQuery("");
         }
-        public Query(string customQueryRequest)
+        public Query(string parameters)
         {
-            parseQuery(customQueryRequest);
+            ParseQuery(parameters);
         }
 
-        private void parseQuery(string request)
+        private void ParseQuery(string parameters)
         {
             JObject jsonData;
             using (var client = new System.Net.WebClient())
-                jsonData = JObject.Parse(client.DownloadString($"https://randomuser.me/api/?{request}"));
+                jsonData = JObject.Parse(client.DownloadString($"https://randomuser.me/api/?{parameters}"));
 
             foreach (JToken results in jsonData.SelectToken("results"))
                 Results.Add(new Results(results));
